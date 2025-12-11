@@ -157,8 +157,6 @@
                             
                                 <option value="en" selected>English</option>
                             
-                                <option value="es" >Español</option>
-                            
                         </select>
                     
                 </td>
@@ -466,6 +464,38 @@
                     
                 </td>
         
+            <tr>
+                <td class="label">
+                    Display type
+                    
+                </td>
+                <td>
+                    
+                        <select name="disp_conf" id="disp_conf" class="form-select" onchange="buildConfig();" autocomplete="off">
+                            
+                                <option value="st7789_240x240" selected>st7789 240x240</option>
+                            
+                                <option value="st7789_320x240" >st7789 320x240</option>
+                            
+                                <option value="ili9341_320x240" >ili9341 320x240 (beta)</option>
+                            
+                        </select>
+                    
+                </td>
+        
+            <tr>
+                <td class="label">
+                    Invert colors
+                    
+                </td>
+                <td>
+                    
+                        <div class="form-check form-switch">
+                            <input type="checkbox" name="rgb_inv" id="" class="form-check-input" value="E" onchange="buildConfig();"  autocomplete="off">
+                        </div>
+                    
+                </td>
+        
     </table>
 
     <br/>
@@ -719,6 +749,28 @@
                         if ($("input[name='partners']:not(:checked)").length > 0) {
                             // Set "D" for disabled
                             settings.push(`partners=D`);
+                        }
+                    
+                
+
+                // TODO: multiselect types can't be blank
+
+            
+                
+                    settings.push(`disp_conf=${$("#disp_conf").val()}`);
+                
+
+                // TODO: multiselect types can't be blank
+
+            
+                
+                    if ($("input[name='rgb_inv']:checked").length > 0) {
+                        settings.push(`rgb_inv=${$("input[name='rgb_inv']:checked").map(function () {return this.value;}).get().join()}`);
+                    }
+                    
+                        if ($("input[name='rgb_inv']:not(:checked)").length > 0) {
+                            // Set "D" for disabled
+                            settings.push(`rgb_inv=D`);
                         }
                     
                 
