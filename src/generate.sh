@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # pull the latest from our target SeedSigner fork/branch
-git submodule update --remote
+git submodule update --remote --recursive
 
 # Extract SeedSigner's `SettingsDefinition` and generate the static index.html
 python3 extract_settings.py
