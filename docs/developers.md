@@ -60,7 +60,7 @@ cd src
 ./generate.sh
 ```
 
-The script tells `SettingsDefinition` to extract itself to json and then calls the `src/parse_settings_json.py` python script to read the settings in and generate the final static `index.html` that gets written to the `docs/` dir.
+The script runs `src/parse_settings_json.py` which extracts SeedSigner's `SettingsDefinition`. That is then used to generate the final static `index.html` that gets written to the `docs/` dir.
 
 *Note: Why are the static web files in the `docs/` subdir (a better place would be something like a `www/` subdir)? A limitation in Github Pages only lets us host the static website from either the repo root or from a hard-coded `docs/` subdir.*
 
